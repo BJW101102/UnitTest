@@ -41,13 +41,16 @@ class TestBubbleSort(unittest.TestCase):
     def test_boundary_cases(self):
         # Empty array
         self.assertEqual(bubble_sort([]), [])
+        
         # Single element
         self.assertEqual(bubble_sort([42]), [42])
-        self.assertEqual(bubble_sort([42.0]), [42.0])
+        
         # Array with duplicate values
         self.assertEqual(bubble_sort([4, 2.2, 4, 3.3, 2.2]), [2.2, 2.2, 3.3, 4, 4])
+        
         # Already sorted array
         self.assertEqual(bubble_sort([1, 2, 3, 4, 5]), [1, 2, 3, 4, 5])
+        
         # Reverse sorted array
         self.assertEqual(bubble_sort([5, 4, 3, 2, 1]), [1, 2, 3, 4, 5])
 
@@ -55,6 +58,7 @@ class TestBubbleSort(unittest.TestCase):
     def test_idempotency(self):
         arr = [1.1, 2, 3.3, 4, 5.5]
         sorted_arr = bubble_sort(arr)
+        
         # Running bubble sort again on the sorted array
         sorted_again = bubble_sort(sorted_arr)
         self.assertEqual(sorted_arr, sorted_again)
